@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWHS 資訊社</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景 -->
+    <div class="background">
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- 導航列 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>DWHS 資訊社</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active" data-page="home">
+                    <span class="nav-icon">🏠</span>
+                    首頁
+                </a>
+                <a href="#" class="nav-link" data-page="members">
+                    <span class="nav-icon">👥</span>
+                    成員
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主頁面 -->
+    <div id="home-page" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">DWHS 資訊社</h1>
+                <p class="hero-subtitle">學生 / 程式設計師 / 創新者</p>
+            </div>
+        </section>
+
+        <!-- Bento Grid Section -->
+        <section class="bento-section">
+            <div class="container">
+                <div class="bento-grid">
+                    <!-- 社團簡介 -->
+                    <div class="bento-card col-span-2">
+                        <div class="card-header">
+                            <h3>關於我們</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>DWHS 資訊社致力於培養學生的程式設計能力，探索科技前沿。我們提供多元化的學習環境，從基礎程式語言到進階專案開發，讓每位成員都能在資訊科技領域中找到自己的興趣與專長。</p>
+                        </div>
+                    </div>
+
+                    <!-- 聯絡資訊 -->
+                    <div class="bento-card">
+                        <div class="card-header">
+                            <h3>聯絡我們</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="contact-item">📍 電腦教室 A</div>
+                            <div class="contact-item">📧 dwhs.cic@example.com</div>
+                            <div class="contact-item">⏰ 每週三 15:30-17:00</div>
+                        </div>
+                    </div>
+
+                    <!-- 技能展示 -->
+                    <div class="bento-card col-span-2">
+                        <div class="card-header">
+                            <h3>學習技術</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="skills-grid">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">Unity</span>
+                                <span class="skill-tag">AI/ML</span>
+                                <span class="skill-tag">Web Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 社團活動 -->
+                    <div class="bento-card">
+                        <div class="card-header">
+                            <h3>主要活動</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <span class="activity-icon">📚</span>
+                                    <span>週三社課</span>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-icon">🏆</span>
+                                    <span>程式競賽</span>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-icon">�</span>
+                                    <span>專案發表</span>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-icon">🎤</span>
+                                    <span>業界講座</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 社團統計 -->
+                    <div class="bento-card col-span-3">
+                        <div class="card-header">
+                            <h3>社團數據</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label">活躍社員</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">15+</div>
+                                    <div class="stat-label">進行中專案</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">20+</div>
+                                    <div class="stat-label">競賽參與</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">3</div>
+                                    <div class="stat-label">年度成立</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 成員頁面 -->
+    <div id="members-page" class="page">
+        <!-- Members Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">社團幹部</h1>
+                <!-- <p class="hero-subtitle">認識我們優秀的團隊夥伴</p> -->
+            </div>
+        </section>
+
+        <!-- Members Bento Grid -->
+        <section class="bento-section">
+            <div class="container">
+                <div class="bento-grid">
+                    <!-- 幹部團隊標題 -->
+                    <div class="bento-card col-span-3">
+                        <div class="card-header">
+                            <h3>幹部團隊</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>由經驗豐富的學長姐組成的幹部團隊，負責社團的日常營運與技術指導。</p>
+                        </div>
+                    </div>
+
+                    <!-- 社長 -->
+                    <div class="bento-card member-card">
+                        <div class="card-header">
+                            <div class="member-avatar">👨‍💻</div>
+                            <h3>蘇俊睿</h3>
+                            <span class="member-position">社長</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="member-description">負責社團整體規劃、主持社課、社團聯繫、協調分工與喝掉學弟妹的珍奶</p>
+                            <div class="member-skills">
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">AI</span>
+                                <span class="skill-tag">資訊安全</span>
+                                <span class="skill-tag">網頁前端</span>
+                                <span class="skill-tag">訂外食</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 副社長 -->
+                    <div class="bento-card member-card">
+                        <div class="card-header">
+                            <div class="member-avatar">👩‍💻</div>
+                            <h3>李小華</h3>
+                            <span class="member-position">副社長</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="member-description">協助社長處理社務，專長網頁開發與 UI/UX 設計。</p>
+                            <div class="member-skills">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 技術長 -->
+                    <div class="bento-card member-card">
+                        <div class="card-header">
+                            <div class="member-avatar">👨‍💻</div>
+                            <h3>張同學</h3>
+                            <span class="member-position">技術長</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="member-description">負責技術指導與教學，擅長系統開發與資料庫設計。</p>
+                            <div class="member-skills">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">Database</span>
+                                <span class="skill-tag">System Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 活動組長 -->
+                    <div class="bento-card member-card">
+                        <div class="card-header">
+                            <div class="member-avatar">👩‍💻</div>
+                            <h3>陳同學</h3>
+                            <span class="member-position">活動組長</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="member-description">規劃與執行各種社團活動，專長於遊戲開發。</p>
+                            <div class="member-skills">
+                                <span class="skill-tag">C#</span>
+                                <span class="skill-tag">Unity</span>
+                                <span class="skill-tag">Game Dev</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 加入我們 -->
+                    <div class="bento-card col-span-2 join-card">
+                        <div class="card-header">
+                            <h3>想加入我們嗎？</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>歡迎對程式設計有興趣的同學加入資訊社！不論是初學者還是有經驗的同學，我們都歡迎你的到來。</p>
+                            <div class="join-steps">
+                                <div class="step-item">
+                                    <span class="step-number">1</span>
+                                    <span>填寫入社申請表</span>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-number">2</span>
+                                    <span>參加社團說明會</span>
+                                </div>
+                                <div class="step-item">
+                                    <span class="step-number">3</span>
+                                    <span>開始你的程式旅程</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
