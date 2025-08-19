@@ -1,43 +1,52 @@
-<!-- 首頁，建議重導向到 about.html -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>資訊社 - 關於</title>
-<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>資訊社 - 首頁</title>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo">DWHS - CIC</a>
-      <div class="nav-menu" id="nav-menu">
-        <a href="about.html" class="nav-link active">關於</a>
-        <a href="members.html" class="nav-link">成員</a>
-        <a href="courses.html" class="nav-link">課程</a>
-        <a href="contact.html" class="nav-link">聯絡我們</a>
-      </div>
-    </div>
-  </nav>
+	<!-- 導覽列 -->
+	<nav class="navbar">
+		<div class="nav-container">
+			<a href="index.html" class="nav-logo" data-text="DWHS - CIC">DWHS - CIC</a>
+			<div class="nav-menu" id="nav-menu">
+				<a href="about.html" class="nav-link">關於</a>
+				<a href="members.html" class="nav-link">成員</a>
+				<a href="courses.html" class="nav-link">活動</a>
+				<a href="contact.html" class="nav-link">聯絡我們</a>
+			</div>
+		</div>
+	</nav>
+	<!-- 照片輪播 -->
+	<div class="carousel-multi">
+		<div class="track-multi" id="track-multi">
+			<div class="slide-multi"><img src="assets/社長.jpg" alt=""></div>
+			<div class="slide-multi"><img src="assets/副社.jpg" alt=""></div>
+			<div class="slide-multi"><img src="assets/美宣.jpg" alt=""></div>
+			<div class="slide-multi"><img src="assets/公關1.jpg" alt=""></div>
+			<div class="slide-multi"><img src="assets/公關2.jpg" alt=""></div>
+			<div class="slide-multi"><img src="assets/文書.jpg" alt=""></div>
+		</div>
+	</div>
 
-<section class="bento-section">
-  <div class="bento-grid">
-    <div class="bento-card">
-      <h3>關於我們</h3>
-      <p>我們是資訊社，致力於推廣程式設計與資訊科技。</p>
-    </div>
-    <div class="bento-card">
-      <h3>社團目標</h3>
-      <p>提供學習資源、舉辦活動與課程，增進成員技能。</p>
-    </div>
-    <div class="bento-card">
-      <h3>聯絡方式</h3>
-      <p>Email: info@club.com</p>
-    </div>
-  </div>
-</section>
 
-<script src="script.js"></script>
+	<!-- 快速導向 -->
+	<section class="index-container">
+		<div class="index-text">在資訊的世界裡，我們寫的不只是程式，而是未來。</a></div>
+	</section>
+	<section class="quick-links">
+		<div class="quick-card"><a href="about.html">關於我們</a></div>
+		<div class="quick-card"><a href="members.html">社團成員</a></div>
+		<div class="quick-card"><a href="activities.html">社團活動</a></div>
+		<div class="quick-card"><a href="contact.html">聯絡我們</a></div>
+	</section>
+
+	<script src="script.js"></script>
 </body>
+
 </html>
