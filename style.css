@@ -1,0 +1,134 @@
+/* 共用 CSS */
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  background: #121212;
+  color: #fff;
+  padding-top: 60px; /* 避免導覽列遮住內容 */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 5rem;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  padding: 0rem;
+}
+
+/* 將 nav-container 變成水平排列 */
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* 左中右分開 */
+  align-items: center;            /* 垂直置中 */
+  height: 100%;
+  gap: 1rem; 
+}
+
+.nav-logo {
+  font-weight: bold;
+  font-size: 3rem;
+  margin: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #e0e0e0; /* 預設文字顏色 */
+  text-decoration: none;
+  transition: all 3.0s ease;
+}
+
+/* hover 漸變效果 */
+.nav-logo:hover {
+  background: linear-gradient(90deg, #ee7803, #62c7f0); /* 漸變色 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; 
+  opacity: 3.0;
+}
+
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  padding-right: 2rem;
+  font-size: 1.2rem;
+}
+
+.nav-link {
+  color: #a3a3a3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 1.0s;
+}
+
+.nav-link:hover {
+  color: #89bdfc;
+}
+
+/* 漢堡選單 (手機版) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 0.25rem;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Bento grid */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 5rem 1rem 2rem;
+}
+
+.bento-card {
+  background: rgba(255,255,255,0.05);
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+.bento-card:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.8);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+  }
+  .nav-menu.active {
+    display: flex;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
