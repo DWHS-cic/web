@@ -113,7 +113,7 @@ body {
   color: #bbb;
 }
 
-/*=====index=====*/
+/*===== index =====*/
 .index-container {
   display: flex;
   flex-direction: column;
@@ -137,8 +137,22 @@ body {
   content: " />";
   color: #29faa6;
 }
+/* ===== about =====*/
 
-/* =====contact=====*/
+.about-title {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 2rem;
+  padding: 1.5rem;
+  color: #fff;
+}
+/* ===== contact =====*/
 .contact-container {
   display: flex;
   flex-direction: column;
@@ -151,6 +165,12 @@ body {
   width: 100%;
   font-size: 2rem;
   padding: 1.5rem;
+}
+/*===== courses =====*/
+.bento-card h6 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 /* ===== 新的多張照片橫向滑動 Carousel ===== */
@@ -241,6 +261,12 @@ body {
 
 .bento-card h3 {
   font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.bento-card h2 {
+  font-size: 2rem;
   margin-bottom: 0.5rem;
   text-align: center;
 }
