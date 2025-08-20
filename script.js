@@ -24,3 +24,4 @@ function animate() {
 // 複製一次內容，用於無縫循環
 track.innerHTML += track.innerHTML;
 animate();
+

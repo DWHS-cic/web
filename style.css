@@ -146,7 +146,7 @@ body {
   padding: 2rem;
 }
 
-.contact-text {
+.title-text {
   text-align: center;
   width: 100%;
   font-size: 2rem;
@@ -220,6 +220,7 @@ body {
 /* Bento grid */
 .bento-section {
   padding: 1rem;
+  margin-bottom: 11rem;
   border-radius: 1rem;
   }
 
@@ -261,15 +262,63 @@ body {
 }
 
 
+
 .bento-card a[href]:hover {
   color: #e5ab0a;
   transform: scale(1.2);
+}
+
+.bento-card img {
+  display: block;       
+  margin: 0 auto;       
+  width: 25rem;         
+  height: auto;
+  border-radius: 1rem;
 }
 
 .bento-card:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
 }
+
+
+/*====頁尾版權=====*/
+.footer {
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-icon:hover {
+  color: #62c7f0; /* hover 漸變顏色 */
+}
+
 
 @media (max-width: 768px) {
   .nav-menu {
