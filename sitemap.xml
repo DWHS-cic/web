@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 主頁 -->
   <url>
     <loc>https://dwhs-cic.github.io/web/</loc>
   </url>
-  <url>
-    <loc>https://dwhs-cic.github.io/web/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dwhs-cic.github.io/web/about.html</loc>
-  </url>
+
+  <!-- 成員頁 -->
   <url>
     <loc>https://dwhs-cic.github.io/web/members.html</loc>
   </url>
+
+  <!-- 關於頁 -->
+  <url>
+    <loc>https://dwhs-cic.github.io/web/about.html</loc>
+  </url>
+
+  <!-- 課程頁 -->
   <url>
     <loc>https://dwhs-cic.github.io/web/courses.html</loc>
   </url>
+
+  <!-- 聯絡頁 -->
   <url>
     <loc>https://dwhs-cic.github.io/web/contact.html</loc>
   </url>
