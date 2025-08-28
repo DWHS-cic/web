@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 主頁 -->
-  <url>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
     <loc>https://dwhs-cic.github.io/web/</loc>
-  </url>
-
-  <!-- 成員頁 -->
-  <url>
+    <lastmod>2024-08-28</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>https://dwhs-cic.github.io/web/members.html</loc>
-  </url>
-
-  <!-- 關於頁 -->
-  <url>
+    <lastmod>2022-08-028</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>https://dwhs-cic.github.io/web/about.html</loc>
-  </url>
-
-  <!-- 課程頁 -->
-  <url>
+    <lastmod>2024-08-28</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>https://dwhs-cic.github.io/web/courses.html</loc>
-  </url>
-
-  <!-- 聯絡頁 -->
-  <url>
+    <lastmod>2024-08-28</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>https://dwhs-cic.github.io/web/contact.html</loc>
-  </url>
-</urlset>
+    <lastmod>2024-08-28</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://dwhs-cic.github.io/web/index.html</loc>
+    <lastmod>2024-08-28</lastmod>
+  </sitemap>
+</sitemapindex>
