@@ -1,16 +1,66 @@
 /* 共用 CSS */
+/* 基本重置 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* 根字級：使用 clamp() 讓全站字級依螢幕寬度流動 */
+html {
+  /* 向下微調整：整體字級再小一些，手機更友善 */
+  font-size: clamp(12px, 1vw + 11px, 16px);
+}
+
+html,
 body {
   font-family: "Inter", sans-serif;
   line-height: 1.6;
   background: #121212;
   color: #fff;
   padding-top: 60px; /* 避免導覽列遮住內容 */
+  /* 防止整個頁面在小螢幕出現水平滾動 */
+  overflow-x: hidden;
+  /* 垂直滾動允許；禁止水平手勢（Chrome/Edge/Safari 支援 touch-action） */
+  touch-action: pan-y;
+  /* 阻止瀏覽器在 X 軸的 overscroll 行為，避免系統層級水平滑動 */
+  overscroll-behavior-x: none;
+}
+
+/* 讓所有媒體在容器內縮放，避免超出寬度 */
+img,
+picture,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 對橫向可滾動的元件（carousel）禁用使用者的橫向手勢，避免整個頁面被拖移 */
+.carousel-multi,
+.track-multi {
+  touch-action: pan-y;
+}
+
+/* 全站背景區塊（如頁面有 .background / .bg-overlay，會使用它來產生視覺背景且不會小於主內容） */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 24vh; /* 至少覆蓋上方視覺重點區域 - 縮小以配合較小圖像 */
+  background: linear-gradient(135deg, #0f1720 0%, #1f1f1f 100%);
+  z-index: -2;
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 24vh;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
 }
 
 .navbar {
@@ -37,7 +87,7 @@ body {
 .nav-logo {
   position: relative;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: clamp(1.2rem, 3.2vw, 2.2rem);
   margin: 0;
   padding: 1rem;
   color: #e0e0e0;
@@ -65,10 +115,125 @@ body {
 }
 
 .nav-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 1rem;
+  border-radius: 0 0 8px 8px;
+  min-width: 200px;
+  z-index: 150;
+}
+
+.nav-menu.open {
   display: flex;
-  gap: 1.5rem;
-  padding-right: 2rem;
-  font-size: 1.2rem;
+}
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 48px;
+  height: 48px;
+  margin-right: 1rem;
+  cursor: pointer;
+  z-index: 200;
+  padding: 12px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-link {
+  padding: 0.75rem 1.5rem;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 1rem;
+  z-index: 200;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 1023px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    width: 200px;
+    z-index: 150;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .nav-link {
@@ -83,7 +248,7 @@ body {
 }
 
 .nav-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   cursor: pointer;
   gap: 0.25rem;
@@ -105,11 +270,11 @@ body {
   color: #fff;
 }
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
   margin-bottom: 0.5rem;
 }
 .hero p {
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
   color: #bbb;
 }
 
@@ -124,7 +289,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 2.5rem;
+  font-size: clamp(0.8rem, 3vw, 1.8rem);
   padding: 1.5rem;
 }
 
@@ -140,18 +305,18 @@ body {
 /* ===== about =====*/
 
 .about-title {
-  font-size: 3rem;
+  font-size: clamp(1.2rem, 3.2vw, 2.2rem);
   color: #fff;
 }
 
 .about-text {
-  font-size: 2rem;
+  font-size: clamp(0.95rem, 2vw, 1.6rem);
   padding: 0rem;
   color: #fff;
 }
 
 .history-title {
-  font-size: 3rem;
+  font-size: clamp(1rem, 3vw, 2.2rem);
   font-weight: bold;
   padding: 1rem;
   color: #fff;
@@ -160,19 +325,20 @@ body {
 /* ===== 時間表動畫 =====*/
 .timeline-item .content {
   opacity: 0;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   padding: 1rem;
   width: 100%;
   border-radius: 0.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  transition: transform 3s cubic-bezier(.23,1,.32,1), opacity 3s cubic-bezier(.23,1,.32,1);
+  transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 /*左*/
 .timeline-item.left .content {
   transform: translateX(-10rem);
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   font-weight: bold;
 }
 
@@ -185,7 +351,7 @@ body {
 .timeline-item.right .content {
   transform: translateX(10rem);
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   font-weight: bold;
 }
 
@@ -217,7 +383,8 @@ body {
   justify-content: center;
 }
 
-.timeline-item.left, .timeline-item.right {
+.timeline-item.left,
+.timeline-item.right {
   justify-content: center;
 }
 
@@ -232,12 +399,12 @@ body {
 .title-text {
   text-align: center;
   width: 100%;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 1.8vw, 1.4rem);
   padding: 1.5rem;
 }
 /*===== courses =====*/
 .bento-card h6 {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -247,7 +414,9 @@ body {
   overflow: hidden;
   width: 100%;
   background: #121212;
-  padding-top: 1rem;
+  /* 保持背景至少與 .background 一致或更大，避免圖片超出背景範圍 */
+  min-height: 24vh;
+  padding: 1.25rem 0;
   border-radius: 1rem;
 }
 
@@ -259,8 +428,12 @@ body {
 
 .slide-multi {
   flex: 0 0 auto;
-  width: 18rem;
-  height: auto;
+  /* 限制每張 slide 的寬高，確保不會超出背景高度 */
+  /* 縮小圖片比例以避免覆蓋背後區塊 */
+  width: clamp(6.5rem, 14vw, 12rem);
+  max-width: 16rem;
+  max-height: calc(24vh - 2rem);
+  aspect-ratio: 3/4;
   border-radius: 1rem;
   overflow: hidden;
   background: #333;
@@ -272,6 +445,8 @@ body {
   object-fit: cover;
   display: block;
   border-radius: 1rem;
+  /* 確保圖片最大高度不會超過父容器或背景 */
+  max-height: calc(24vh - 2rem);
 }
 
 /* 快速導向卡片 */
@@ -286,23 +461,23 @@ body {
 .quick-card {
   flex: 1 1 180px;
   max-width: 200px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   padding: 1.5rem 1rem;
   border-radius: 1rem;
   text-align: center;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: 0.3s;
-  text-decoration: none;   /* 取消底線 */
-  color: #fff;             /* 文字顏色 */
+  text-decoration: none; /* 取消底線 */
+  color: #fff; /* 文字顏色 */
   font-weight: bold;
   font-size: 1.1rem;
-  display: flex;           /* 讓文字置中 */
+  display: flex; /* 讓文字置中 */
   align-items: center;
   justify-content: center;
 }
 
 .quick-card:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-3px);
 }
 
@@ -311,11 +486,12 @@ body {
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 1rem;
-  }
+}
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* 減少最小欄位寬度，避免在小螢幕產生橫向溢位 */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
   margin: 1rem;
 }
@@ -329,13 +505,13 @@ body {
 }
 
 .bento-card h3 {
-  font-size: 1.5rem;
+  font-size: clamp(0.8rem, 1.8vw, 1.4rem);
   margin-bottom: 0.5rem;
   text-align: left;
 }
 
 .bento-card h2 {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -353,10 +529,8 @@ body {
   font-weight: bold;
   color: #21e1ef;
   text-decoration: none;
-  transition: 1.0s;
+  transition: 1s;
 }
-
-
 
 .bento-card a[href]:hover {
   color: #e5ab0a;
@@ -364,9 +538,11 @@ body {
 }
 
 .bento-card img {
-  display: block;       
-  margin: 0 auto;       
-  width: 25rem;         
+  display: block;
+  margin: 0 auto;
+  /* 更流動的尺寸，避免在小螢幕過大 */
+  width: clamp(10rem, 40vw, 20rem);
+  max-width: 100%;
   height: auto;
   border-radius: 1rem;
 }
@@ -378,17 +554,20 @@ body {
 /*===== member =====*/
 .member-title-text {
   text-align: center;
-  font-size: 3rem;
+  font-size: clamp(1rem, 3vw, 1.8rem);
 }
 
 .member-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 一行可放 3~4 個 */
-  justify-content: center;  /* 水平置中 */
-  align-items: center;      /* 垂直置中 */
-  gap: 2rem;                /* 卡片間距 */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); /* 一行可放 3~4 個 */
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 */
+  gap: 2rem; /* 卡片間距 */
   width: 80%;
-  margin: 0 auto;           /* 置中在畫面 */
+  margin: 0 auto; /* 置中在畫面 */
   margin-bottom: 2rem;
 }
 
@@ -396,7 +575,7 @@ body {
   background: rgba(255, 255, 255, 0.05);
   padding: 1rem;
   border-radius: 1rem;
-  font-size: 1.3rem;
+  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
   font-weight: bold;
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
@@ -406,28 +585,101 @@ body {
   transition: transform 0.4s ease, box-shadow 0.4s ease; /* 卡片動畫 */
 }
 
+.member-card {
+  overflow: hidden; /* 防止 hover 或圖片溢出卡片造成位移 */
+}
+
 .member-card img {
-  width: 12rem;
-  height: 16rem;
-  object-fit: cover;
+  /* 同一橫排照片寬高一致且不裁切：
+     - width & height 使用同一 clamp 範圍以維持方形格子
+     - object-fit: contain 保留完整圖片，不會被裁切（會有 letterbox）
+     - 背景色與 padding 幫助填補空白區塊，視覺一致 */
+  display: block;
+  /* 保留你指定的 min 值（16rem / 20rem），但收斂中間的 vw 與上限，避免大螢幕圖片過大 */
+  width: clamp(16rem, 10vw, 12rem);
+  height: clamp(20rem, 12vw, 15rem);
+  object-fit: contain; /* 保留整張圖，不裁切 */
+  background: rgba(0, 0, 0, 0.12);
+  padding: 0.25rem;
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
-  transition: transform 0.4s ease; /* 圖片動畫 */
+  transition: transform 0.3s ease; /* 圖片動畫 */
+}
+
+/* Member photo container: consistent frames per row */
+.member-photo {
+  width: 100%;
+  /* portrait frames (adjust aspect-ratio if you prefer square) */
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* show whole image without crop */
+  display: block;
 }
 
 /* hover 整體卡片放大 */
 .member-card:hover {
-  transform: scale(1.3) ; /* 整張卡片（含灰色背景、文字、圖片）一起放大 */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  transform: scale(1.03); /* 輕微放大，避免推擠鄰近元素 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
   background-color: #2c2c2c;
 }
 
 /* 如果還想讓圖片再多放大一點，可以加這個 */
 .member-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
+/* 更緊湊的尺寸：針對非常小的裝置額外縮放圖片 */
+@media (max-width: 600px) {
+  .carousel-multi {
+    min-height: 20vh;
+    padding: 0.8rem 0;
+  }
+  .slide-multi {
+    width: clamp(5rem, 20vw, 9.5rem);
+    max-height: calc(20vh - 1.5rem);
+  }
+  .slide-multi img {
+    max-height: calc(40vh - 1rem);
+  }
+  .member-card img {
+    /* 手機尺寸：方形格子但更緊湊，且不裁切 */
+    display: block;
+    width: clamp(4rem, 14vw, 6.5rem);
+    height: clamp(4rem, 14vw, 6.5rem);
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.12);
+    padding: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .bento-card img {
+    width: clamp(8rem, 45vw, 18rem);
+  }
+}
 
+/* Prevent member images from being cropped on very small screens:
+   - make the image fully responsive (width:100%; height:auto)
+   - ensure the card doesn't hide overflow so the image can scale naturally */
+@media (max-width: 480px) {
+  .member-card {
+    overflow: visible; /* allow image to size without being clipped */
+  }
+  .member-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* ensure no cropping */
+    padding: 0.15rem;
+  }
+}
 
 /*====頁尾版權=====*/
 .footer {
@@ -467,7 +719,6 @@ body {
   color: #62c7f0; /* hover 漸變顏色 */
 }
 
-
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
@@ -485,5 +736,19 @@ body {
   }
   .nav-toggle {
     display: flex;
+  }
+}
+
+/* Tablet-specific override: prevent member images from being cropped on tablet widths
+   by using responsive height:auto and allowing overflow when necessary. */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .member-card {
+    overflow: visible;
+  }
+  .member-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* preserve whole image */
+    padding: 0.2rem;
   }
 }

@@ -1,11 +1,40 @@
-// 漢堡選單 JS
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-if (hamburger && navMenu) {
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-}
+// 導覽列選單
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (navToggle && navMenu) {
+    // 點擊漢堡按鈕開關選單
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      navToggle.classList.toggle('active');
+    });
+
+    // 支援鍵盤使用者
+    navToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        navToggle.click();
+      }
+    });
+
+    // 點擊選單連結時自動關閉選單
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('active');
+      });
+    });
+
+    // 點擊選單外部時關閉選單
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('active');
+      }
+    });
+  }
+});
 
 // Timeline 滾動動畫
 document.addEventListener('DOMContentLoaded', function () {
