@@ -289,7 +289,7 @@ video {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: clamp(0.8rem, 3vw, 1.8rem);
+  font-size: clamp(0.8rem, 2vw, 3rem);
   padding: 1.5rem;
 }
 
@@ -430,9 +430,9 @@ video {
   flex: 0 0 auto;
   /* 限制每張 slide 的寬高，確保不會超出背景高度 */
   /* 縮小圖片比例以避免覆蓋背後區塊 */
-  width: clamp(6.5rem, 14vw, 12rem);
+  width: clamp(15rem, 20vw, 20rem);
   max-width: 16rem;
-  max-height: calc(24vh - 2rem);
+  max-height: calc(50vh - 2rem);
   aspect-ratio: 3/4;
   border-radius: 1rem;
   overflow: hidden;
@@ -446,7 +446,7 @@ video {
   display: block;
   border-radius: 1rem;
   /* 確保圖片最大高度不會超過父容器或背景 */
-  max-height: calc(24vh - 2rem);
+  max-height: calc(50vh - 2rem);
 }
 
 /* 快速導向卡片 */
@@ -645,8 +645,8 @@ video {
     padding: 0.8rem 0;
   }
   .slide-multi {
-    width: clamp(5rem, 20vw, 9.5rem);
-    max-height: calc(20vh - 1.5rem);
+    width: clamp(10rem, 20vw, 12rem);
+    max-height: calc(40vh - 1.5rem);
   }
   .slide-multi img {
     max-height: calc(40vh - 1rem);
