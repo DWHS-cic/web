@@ -1,0 +1,8 @@
+照片須先到以下連結壓縮，以免載入時間過長
+設定 :
+Compress裡檔案類型調整成Webp
+lostless不勾選
+Effort : 4
+Quality : 75
+
+網址 : https://squoosh.app/editor
